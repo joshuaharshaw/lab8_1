@@ -1,8 +1,8 @@
-TO-DO: 
+// TO-DO: 
 
-1. Add the tally element, taking into account the price AND quantity of each food item. 
+// 1. Add the tally element, taking into account the price AND quantity of each food item. 
 
-2. Make a CalcTax function and pass the supdated subtotal. DUsplay the new total dynamically.
+// 2. Make a CalcTax function and pass the updated subtotal. Display the new total dynamically.
 
 var occupied = [];
 
@@ -26,41 +26,19 @@ console.log();
 
 // console.log($("#list-content"));
 
-function tallyItems (groceries) {
-
-	var subtotal = 0;
-
-	for (var i = 0; i < groceries.length; i++) {
-	
-		var finalItem = `<div class="foodItem">${groceries[i].name} <span>$${groceries[i].price}</span></div>`;
-		var $target = $("#list-content");
-		$target.append(finalItem);
-
-		subtotal+=groceries[i].price;
-
-	}
-
-	$target.append(`<div class="foodItem">Subtotal <span>$${subtotal.toFixed(2)}</span></div>`);
-
-	$("#finalTotal").append("$" + (subtotal * 1.06).toFixed(2));
-
-}
-
-
 function addItem (event) {
 	
-	var itemID = this.parentNode.dataset.id;
-	var present = occupied.find(checkItem);
-	var quantity = this.parentNode.childNodes[2].value;
+	var itemID = this.parentNode.dataset.id;// Item ID, passed via a custom data type.
+	var present = occupied.find(checkItem);// Check if item to be added is present already.
+	var quantity = this.parentNode.childNodes[2].value;// Entered quantity to be added.
 
-	if (quantity === 0 || quantity ==="") {
-
-	} else if (present) {
-
-		$("#list-content").find(`[data-id=${itemID}]`).children("span").text(`$${groceryList[itemID].price} x ${quantity}`);
+	if (quantity === 0 || quantity ==="") { //Does nothing if the quantity is empty or 0.
+	
+	} else if (present) { //If the item to be added is already present, simply update the total quantity.
 		
-	} else {
-
+		$("#list-content").find(`[data-id=${itemID}]`).children("span").text(`$${groceryList[itemID].price} x ${quantity}`);	
+	} else { // If the item is not present and is non-zero, create the element with the correct quantity and name, etc.
+		
 		var finalItem = `<div class="foodItem" data-id="${itemID}">${groceryList[itemID].name}<span>$${groceryList[itemID].price} x ${quantity}</span></div>`;
 		var $target = $("#list-content");
 		$target.append(finalItem);
@@ -68,7 +46,7 @@ function addItem (event) {
 		occupied.push(itemID);
 	}
 
-	function checkItem (item) {
+	function checkItem (item) { //Helper function, a part of line 53.
 
 		return item === itemID;
 }
