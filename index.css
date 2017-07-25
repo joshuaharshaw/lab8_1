@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css?family=Plaster|Monoton");
+
+/* Standard Classes*/
+.material {
+  box-shadow: 0px 2px 10px black;
+}
+
+.material-sm {
+  box-shadow: 0px 2px 5px black;
+}
+
+.material-xs {
+  box-shadow: 0px 2px 3px black;
+}
+
+/* Restats and Resizes*/
+* {
+margin: 0;
+}
+
+/*Header Element*/
+header {
+	background-color: #ef0909;
+	min-height: 75px;
+	padding:5px;
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+header span {
+	font-size: 2.5em;
+	color:white;
+	font-family: Monoton;
+} 
+
+header p {
+	color: white;
+	margin:11px 0px;
+	font-family: Plaster;
+}
+
+
+
+/*Site-Wide Styles*/
+
+.list-header {
+	text-align: center;
+	background-color: #ef0909;
+	line-height: 50px;
+	font-size: 2em;
+	color: white;
+	text-decoration: ;
+	margin-bottom: 10px; 
+}
+
+
+/*Options list*/
+#options {
+	float: left;
+	width: 250px;
+	min-height: 250px;
+	margin:0px 20px;
+}
+
+.opt-list {
+	list-style: none;
+}
+
+.opt-item {
+	font-size: 1.2em;
+	width: 90%;
+	height: 27px;
+}
+
+.opt-item input {
+	float: right;
+	width: 35px;
+	margin-right: 5px;
+}
+
+.addButton {
+	float: right;
+	height: 25px;
+	background-color: white;
+	border:1px solid black;
+}
+
+.addAll {
+	height: 25px;
+	background-color: white;
+	border:1px solid black;
+	margin: 10px 60px;
+}
+
+/*Main Content Box- Shopping List*/
+#main-list {
+	float: left;
+	width: 50%;
+}
+
+#list-content {
+
+}
+
+.foodItem {
+	height: 30px;
+	width: 90%;
+	font-size: 1.5em;
+	line-height: 30px;
+	margin:10px auto;
+	background-color: rgba(128,128,128, 0.36);
+	padding: 0px 10px;
+}
+
+.foodItem span {
+	float: right;
+}
+
+.list-footer {
+	background-color: #ef0909;
+	line-height: 50px;
+	font-size: 2em;
+	color: white;
+	margin-top: 10px;
+	padding: 0px 10px;
+}
+
+.list-footer span {
+	float: right;
+}

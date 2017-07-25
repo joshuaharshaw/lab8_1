@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Latest compiled and minified CSS -->
+
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<title>Motor City Bakery</title>
+</head>
+
+<body>
+
+<header class="material-sm"><span>M</span></span><span>C</span><p>Motor City Bakery</p></header>
+
+<div id="wrapper">
+
+	<div class="material-xs" id="options">
+		<h3 class="list-header">Options</h3>
+		<ul class="opt-list">
+			<li class="opt-item" data-id="0">Donut<button class="addButton">+</button><input type="number" name="quantity" min="0"></li>
+			<li class="opt-item" data-id="1">Bagel<button class="addButton">+</button><input type="number" name="quantity" min="0"></li>
+			<li class="opt-item" data-id="2">Loaf<button class="addButton">+</button><input type="number" name="quantity" min="0"></li>
+			<li class="opt-item" data-id="3">Pastry<button class="addButton">+</button><input type="number" name="quantity" min="0"></li>
+			<li class="opt-item" data-id="4">Pie<button class="addButton">+</button><input type="number" name="quantity" min="0"></li>
+		</ul>
+		<button class="addAll" type="button">Add Items to Cart</button>
+	</div>
+
+	<div class="material-xs" id="main-list">
+		<h3 class="list-header">Shopping List</h3>
+		
+		<div id="list-content">
+		</div>
+
+		<h3 class="list-footer">Final Total: <span id="finalTotal"></span></h3>
+	</div>
+
+</div>
+
+</body>
+
+<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</html>
