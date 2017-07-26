@@ -33,7 +33,8 @@ function addItem (event) {
 	
 	} else if (present) { //If the item to be added is already present, simply update the total quantity.
 		
-		$("#list-content").find(`[data-id=${itemID}]`).children("span").text(`$${groceryList[itemID].price} x ${quantity}`);	
+		$("#list-content").find(`[data-id=${itemID}]`).children("span").text(`$${groceryList[itemID].price} x ${quantity}`);
+
 	} else { // If the item is not present and is non-zero, create the element with the correct quantity and name, etc.
 		
 		var finalItem = `<div class="foodItem" data-id="${itemID}"> ${groceryList[itemID].name}
@@ -41,13 +42,11 @@ function addItem (event) {
 		var $target = $("#list-content");
 		$target.append(finalItem);
 
-		subtotal += quantity * groceryList[itemID].price
+		subtotal += quantity * groceryList[itemID].price;
 		total = subtotal * 1.06;
 		updateTotals(subtotal, total);
 		
 		occupied.push(itemID);
-
-
 	}
 
 	function checkItem (item) { //Helper function, a part of line 53.
