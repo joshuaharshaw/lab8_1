@@ -4,9 +4,9 @@
 
 // 2. Make a CalcTax function and pass the updated subtotal. Display the new total dynamically.
 
-var occupied = [];
+var occupied = []; //STarter variable to keep track of present items. Will reset every page load.
 
-var groceryList = [ //Array of grocery items. Contains reference information for all groceries.
+var groceryList = [ //Array of grocery items/objects. Contains reference information for all groceries.
 {name: "Donut", price: 1.69, id: 0}, 
 {name: "Bagel", price: 2.19, id: 1}, 
 {name: "Loaf", price: 1.19, id: 2},
@@ -14,23 +14,20 @@ var groceryList = [ //Array of grocery items. Contains reference information for
 {name: "Pie", price: 7.01, id: 4}
 ];
 
-
-$(".addButton").click(addItem);
-
-console.log();
+$(".addButton").click(addItem); // Event Listener: Add item when button clicked.
 
 // Try: Simply adding a list item and using JS to tally all associated ingredients to make said item.
 
 // Try: Having all of the elements slide down on load = $("body").slideDown();
 
-
-// console.log($("#list-content"));
+var subtotal = 0;
+var total;
 
 function addItem (event) {
 	
-	var itemID = this.parentNode.dataset.id;// Item ID, passed via a custom data type.
-	var present = occupied.find(checkItem);// Check if item to be added is present already.
-	var quantity = this.parentNode.childNodes[2].value;// Entered quantity to be added.
+	var itemID = this.parentNode.dataset.id; // Item ID, passed via a custom data type in the HTML.
+	var present = occupied.find(checkItem); // Check if item to be added is present already.
+	var quantity = this.parentNode.childNodes[2].value; // Entered quantity to be added.
 
 	if (quantity === 0 || quantity ==="") { //Does nothing if the quantity is empty or 0.
 	
@@ -39,35 +36,37 @@ function addItem (event) {
 		$("#list-content").find(`[data-id=${itemID}]`).children("span").text(`$${groceryList[itemID].price} x ${quantity}`);	
 	} else { // If the item is not present and is non-zero, create the element with the correct quantity and name, etc.
 		
-		var finalItem = `<div class="foodItem" data-id="${itemID}">${groceryList[itemID].name}<span>$${groceryList[itemID].price} x ${quantity}</span></div>`;
+		var finalItem = `<div class="foodItem" data-id="${itemID}"> ${groceryList[itemID].name}
+							<span>$${groceryList[itemID].price} x ${quantity}</span></div>`;
 		var $target = $("#list-content");
 		$target.append(finalItem);
 
+		subtotal += quantity * groceryList[itemID].price
+		total = subtotal * 1.06;
+		updateTotals(subtotal, total);
+		
 		occupied.push(itemID);
+
+
 	}
 
 	function checkItem (item) { //Helper function, a part of line 53.
 
 		return item === itemID;
-}
+	}
 } 
 
+function updateTotals(subtotal, total) {
 
+	$("#foodTally").text("$" +subtotal.toFixed(2));
+	$("#finalTotal").text("$" +total.toFixed(2));
 
-// Steps For checking if the item is present: 
+}
 
-// 1. Check to see if the item is already present.
+//Function tallyItems toDO :
 
-// 2. If so, then add to the tally of the items.
+// Store the current value of the tally in a global variable.Done.
 
-// 3. If not, then create the element with 
-// the correct quantity and append it to the list.
+// Append the (item X quantity) * 1.06 to the total variable. 
 
-
-
-// Needed information: 
-
-// the ID of the item
-
-// the desired quantity of the item
-
+// Update  the variable to reflect the new total.
